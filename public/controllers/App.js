@@ -54,11 +54,28 @@ myApp.controller("myfirstcontroller",function($scope, $http, $interval){
 //------------------------------------------------------------------------------------------------  
     $scope.upgradeLevel = function(field){
 
+        //check to see if the field is maxed out at level 20
         if(field.level < 20){
             
-            if(field.stock >= 10){
-                field.stock -= 200;
-                //field.level += 1;
+            //the array with the information about the field level upgrades
+            resourceCostPerLv = [25,80,136,244,450,677,1000,2500,5500,12000,20000,39000,75000,135000,200000,420000,750000,1460000,3200000,1000000];
+            
+            //to match up the indexes with the field level
+            i = field.level - 1;
+            
+            //if the stock is greater than or equal to the amount of the resources needed to upgrade, contine with upgrading the field and removing the resources
+            //else throw an error
+            if( field.stock >= resourceCostPerLv[i]){
+                
+                //console.log("The amount on needed resources for this level: " + resourceCostPerLv[i]);
+                //console.log("The old field stock: " + field.stock);
+                
+                //new field stock after removing the resources
+                field.stock = field.stock - resourceCostPerLv[i];
+                
+                //console.log("The new stock amount is now: " + field.stock);
+                
+                //updte the field information, lv and stock
                 updateLevel(field);
                 
             }else{
