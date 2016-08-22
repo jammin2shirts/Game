@@ -1,0 +1,6 @@
+*Update level, and display it again*
+1.  Load page with current database information////
+2.  Click upgrade btn of field I wish to upgrade
+3.  Pass the id of the field to the controller
+4.  Update the level of the field based on the id passed in
+5.  Send an post request to the server

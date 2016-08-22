@@ -1,0 +1,34 @@
+//droping a database
+use game
+db.dropDatabase()
+
+//inserting the data
+//numbers cannot be in quotes or are considered non-numeric, aka cant use the $inc to add values
+db.game.insertMany([
+    {
+        fieldName: 'Water',
+        level: 1,
+        perMin: 50,
+        stock: 0
+    },
+    {
+        fieldName: 'F00d',
+        level: 1,
+        perMin: 50,
+        stock: 0
+    },
+    {
+        fieldName: 'Gold',
+        level: 1,
+        perMin: 50,
+        stock: 0
+    },
+    {
+        fieldName: 'Wood',
+        level: 1,
+        perMin: 50,
+        stock: 0
+    }]
+)
+
+db.game.update({_id: "578d5fbf36e847c2b712f0be"},{fieldName: 'Water',level: '1',perMin: '50',stock: '0'})

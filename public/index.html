@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="myApp">
+    <head>
+        <title>Sheeple Wars</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <script src="js/angular.min.js"></script>
+        <script src="controllers/App.js"></script>
+        <style>.panel{width:250px}</style>
+    </head>
+    <body>
+        <div  class="container-fluid" ng-init="stockCount();">
+
+            <div ng-controller="myfirstcontroller">
+                
+                <h2>  {{Welcome;}} </h2>
+                <div class="panel panel-default col-md-12"  ng-repeat="resource in game">
+                    
+                    <p class="panel-body" > Your {{resource.fieldName}} = {{resource.stock}}</p>
+                    
+                </div>
+              
+                <div class="panel panel-default" ng-repeat="field in game">
+                    
+                    <p class="panel-heading ">{{field.fieldName}}</p>
+                    <p class="panel-body">Level: {{field.level}}</p>
+                    
+                    <!-- I need to pass field into upgradeLevel to refer to which elements level I'm updating -->
+                    <button ng-click="upgradeLevel(field);">Upgrade</button>
+                    
+                </div>
+         
+            </div>
+        </div>
+    </body>
+</html>
+
+
